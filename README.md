@@ -3,7 +3,6 @@
 A real-time multiplayer Chinese Poker game built with Next.js, React, TypeScript, Tailwind CSS, and Socket.io.
 
 Players create or join private rooms using a short room code, arrange 13 cards into three hands, and compete head-to-head with full scoring.
-
 ## Quick Start
 
 ```bash
