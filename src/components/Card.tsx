@@ -3,7 +3,15 @@
 import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import type { Card as CardType } from "../../shared/types";
-import { SUIT_SYMBOLS, SUIT_COLORS, rankLabel } from "@/lib/constants";
+import { SUIT_SYMBOLS, rankLabel } from "@/lib/constants";
+import type { Suit } from "../../shared/types";
+
+const SUIT_INLINE_COLORS: Record<Suit, string> = {
+  spades: "#111827",
+  hearts: "#dc2626",
+  diamonds: "#dc2626",
+  clubs: "#111827",
+};
 
 interface CardProps {
   card: CardType;
@@ -41,27 +49,28 @@ export function CardDisplay({
     );
   }
 
-  const colorClass = SUIT_COLORS[card.suit];
+  const color = SUIT_INLINE_COLORS[card.suit];
   const symbol = SUIT_SYMBOLS[card.suit];
   const label = rankLabel(card.rank);
 
   return (
     <div
       onClick={onClick}
+      style={{ backgroundColor: "#ffffff" }}
       className={`
-        ${sizeClasses[size]} rounded-lg border-2 bg-white shadow-md cursor-pointer
+        ${sizeClasses[size]} rounded-lg border-2 shadow-md cursor-pointer
         select-none relative flex flex-col justify-between p-1.5
         transition-all duration-150
         ${isSelected ? "border-yellow-400 ring-2 ring-yellow-400 -translate-y-2 shadow-lg" : "border-gray-300 hover:border-gray-400 hover:shadow-lg"}
         ${className}
       `}
     >
-      <div className={`${colorClass} font-bold leading-none`}>
+      <div style={{ color }} className="font-bold leading-none">
         <div className="text-[1.1em]">{label}</div>
         <div className="text-[0.8em]">{symbol}</div>
       </div>
-      <div className={`${colorClass} text-center text-2xl`}>{symbol}</div>
-      <div className={`${colorClass} font-bold leading-none self-end rotate-180`}>
+      <div style={{ color }} className="text-center text-2xl">{symbol}</div>
+      <div style={{ color }} className="font-bold leading-none self-end rotate-180">
         <div className="text-[1.1em]">{label}</div>
         <div className="text-[0.8em]">{symbol}</div>
       </div>
