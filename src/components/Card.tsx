@@ -24,9 +24,9 @@ export function CardDisplay({
   className = "",
 }: CardProps) {
   const sizeClasses = {
-    sm: "w-12 h-[4.5rem] text-xs",
-    md: "w-16 h-[5.5rem] text-sm",
-    lg: "w-20 h-28 text-base",
+    sm: "w-14 h-20 text-sm",
+    md: "w-[4.5rem] h-[6.5rem] text-base",
+    lg: "w-24 h-36 text-lg",
   };
 
   if (faceDown) {
@@ -50,20 +50,20 @@ export function CardDisplay({
       onClick={onClick}
       className={`
         ${sizeClasses[size]} rounded-lg border-2 bg-white shadow-md cursor-pointer
-        select-none relative flex flex-col justify-between p-1
+        select-none relative flex flex-col justify-between p-1.5
         transition-all duration-150
         ${isSelected ? "border-yellow-400 ring-2 ring-yellow-400 -translate-y-2 shadow-lg" : "border-gray-300 hover:border-gray-400 hover:shadow-lg"}
         ${className}
       `}
     >
       <div className={`${colorClass} font-bold leading-none`}>
-        <div>{label}</div>
-        <div className="text-[0.65em]">{symbol}</div>
+        <div className="text-[1.1em]">{label}</div>
+        <div className="text-[0.8em]">{symbol}</div>
       </div>
-      <div className={`${colorClass} text-center text-lg`}>{symbol}</div>
+      <div className={`${colorClass} text-center text-2xl`}>{symbol}</div>
       <div className={`${colorClass} font-bold leading-none self-end rotate-180`}>
-        <div>{label}</div>
-        <div className="text-[0.65em]">{symbol}</div>
+        <div className="text-[1.1em]">{label}</div>
+        <div className="text-[0.8em]">{symbol}</div>
       </div>
     </div>
   );

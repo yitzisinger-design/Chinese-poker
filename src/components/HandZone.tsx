@@ -66,7 +66,7 @@ export function HandZone({
         </div>
       )}
 
-      <div className="flex gap-1.5 flex-wrap min-h-[5.5rem] items-center">
+      <div className="flex gap-2 flex-wrap min-h-[6.5rem] items-center">
         {cards.map((card) =>
           readOnly ? (
             <CardDisplay key={card.id} card={card} size="md" />
@@ -81,7 +81,7 @@ export function HandZone({
           )
         )}
         {!readOnly && cards.length < maxCards && (
-          <div className="w-16 h-[5.5rem] rounded-lg border-2 border-dashed border-white/10 flex items-center justify-center">
+          <div className="w-[4.5rem] h-[6.5rem] rounded-lg border-2 border-dashed border-white/10 flex items-center justify-center">
             <span className="text-white/20 text-2xl">+</span>
           </div>
         )}
